@@ -1,3 +1,1 @@
-# realty-mirllex
-Realty project
-sdf
+# to-do-nuxt
