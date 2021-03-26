@@ -1,4 +1,4 @@
 import Vue from 'vue';
-import ElementUI from 'element-ui';
-
-Vue.use(ElementUI)
+import { Button, Dialog } from 'element-ui';
+Vue.component(Dialog.name, Dialog)
+Vue.component(Button.name, Button)

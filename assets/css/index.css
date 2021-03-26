@@ -1,1 +1,6 @@
 @import 'element-ui/lib/theme-chalk/button.css';
+@import 'element-ui/lib/theme-chalk/dialog.css';
+
+html, body{
+  background: #f4f4f4;
+}
