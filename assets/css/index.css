@@ -1,6 +1,28 @@
-@import 'element-ui/lib/theme-chalk/button.css';
-@import 'element-ui/lib/theme-chalk/dialog.css';
+@import "bootstrap-icons/font/bootstrap-icons.css";
 
-html, body{
-  background: #f4f4f4;
+@import "element-ui/lib/theme-chalk/button.css";
+
+@import "element-ui/lib/theme-chalk/dialog.css";
+
+/* @import "element-ui/lib/theme-chalk/radio-button.css";
+@import "element-ui/lib/theme-chalk/radio-group.css"; */
+
+@import "element-ui/lib/theme-chalk/menu.css";
+
+@import "element-ui/lib/theme-chalk/icon.css";
+@import "element-ui/lib/theme-chalk/tooltip.css";
+@import "element-ui/lib/theme-chalk/divider.css";
+@import "element-ui/lib/theme-chalk/input.css";
+
+.card-wrap {
+  padding: 20px;
+  margin-bottom: 30px;
+  border-radius: 0.2857rem;
+  background: #fff;
+  box-shadow: 0 1px 15px 0 hsl(0deg 0% 48% / 5%);
+}
+
+html,
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif !important;
 }

@@ -18,10 +18,16 @@ export default {
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [
-    'bootstrap/dist/css/bootstrap.min.css',
+    // 'bootstrap/dist/css/bootstrap.min.css',
     // 'element-ui/lib/theme-chalk/index.css'
-    '@assets/css/index.css'
+    '@assets/css/index.css',
+    // "@assets/scss/index.scss",
+    "~/assets/scss/index.scss"
   ],
+
+  // styleResources: {
+  //   scss: ["./assets/scss/*.scss"]
+  // },
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
@@ -33,12 +39,13 @@ export default {
 
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
+    "@nuxtjs/style-resources"
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
     // https://go.nuxtjs.dev/axios
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
   ],
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
