@@ -69,6 +69,7 @@
           </ul>
         </div>
       </div>
+
       <div class="col-md-6">
         <div class="card-wrap">
           <img width="100%" src="/images/office.jpg" class="mb-10" />

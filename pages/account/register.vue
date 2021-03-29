@@ -43,7 +43,7 @@
             required
             v-model="userData.tel"
             clearable
-            pattern="\+[0-9]{3} \([0-9]{3}\) [0-9]{2}-[0-9]{2}-[0-9]{2}"
+            pattern="\+[0-9]{3} \([0-9]{3}\)-[0-9]{2}-[0-9]{2}-[0-9]{2}"
             v-mask="'+992 (###)-##-##-##'"
             placeholder="+992 (000) 00-00-00"
             title="+992 (000)-00-00-00"
@@ -116,28 +116,9 @@ export default {
         patronymic: null,
         tel: null,
         email: null,
-        password: null,
-        region: null
+        password: null
       },
-      passwordS: null,
-      options: [
-        {
-          value: "Районы республиканского подчинения",
-          label: "Районы республиканского подчинения"
-        },
-        {
-          value: "Согдийская область",
-          label: "Согдийская область"
-        },
-        {
-          value: "Хатлонская область",
-          label: "Хатлонская область"
-        },
-        {
-          value: "Горно-Бадахшанская автономная область",
-          label: "Горно-Бадахшанская автономная область"
-        }
-      ]
+      passwordS: null
     };
   },
   methods: {

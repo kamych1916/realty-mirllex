@@ -5,7 +5,7 @@ export default class NTFS {
 
     static getInstance() {
         if (NTFS.instance == null) {
-            NTFS.instance = new NTFS; 
+            NTFS.instance = new NTFS;
         }
         return NTFS.instance;
     }

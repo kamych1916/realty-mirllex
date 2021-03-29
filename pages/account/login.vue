@@ -83,10 +83,16 @@ export default {
               "error"
             );
           } else if (status == 426) {
-            this.sendNTFS("Ошибка", "Ваш аккаунт не активирован :(", "error");
+            this.sendNTFS(
+              "Ошибка",
+              "Ваш аккаунт не активирован! Проверьте почту",
+              "error"
+            );
             setTimeout(() => {
               this.$router.push("/account/activate");
             }, 1500);
+          } else if (status == 404) {
+            this.sendNTFS("Ошибка", "Данной почты не существует", "warning");
           } else if (status == 401) {
             this.sendNTFS("Ошибка", "Неверный логин или пароль", "warning");
           }
