@@ -1,12 +1,12 @@
 <template>
   <div>
-    <div class="card-wrap">
-      <h4>Недвижимость в Таджикистане</h4>
+    <div class="card-wrap p-0">
+      <img class="rounded w-100" src="/images/home-banner-8.png" />
     </div>
     <div class="row">
       <div class="col-md-6">
         <div class="card-wrap">
-          <img width="100%" src="/images/buy.jpg" class="mb-10" />
+          <img width="100%" src="/images/buy.jpg" class="mb-10 rounded" />
           <h6 class="mb-10">Купить квартиру</h6>
 
           <ul class="nav nav-pills flex-column mb-auto">
@@ -39,7 +39,7 @@
       </div>
       <div class="col-md-6">
         <div class="card-wrap">
-          <img width="100%" src="/images/rent.jpg" class="mb-10" />
+          <img width="100%" src="/images/rent.jpg" class="mb-10 rounded" />
           <h6 class="mb-10">Снять квартиру</h6>
           <ul class="nav nav-pills flex-column mb-auto">
             <li class="nav-item" style="word-wrap: anywhere">
@@ -69,10 +69,33 @@
           </ul>
         </div>
       </div>
-
+      <div class="col-12">
+        <div class="card-wrap p-0">
+          <div class="map-wrap">
+            <div class="map-wrap-title">
+              <div class="map-wrap-desc">
+                <h4>Поиск на карте</h4>
+                <h6>
+                  Ищите выгодные предложения рядом с работой, <br />
+                  парком или родственниками
+                </h6>
+              </div>
+              <el-button
+                type="info"
+                size="small"
+                plain
+                class="mirllex-btn px-30"
+              >
+                Найти на карте
+              </el-button>
+            </div>
+            <img class="rounded w-100 map-img" src="/images/home-map-4.png" />
+          </div>
+        </div>
+      </div>
       <div class="col-md-6">
         <div class="card-wrap">
-          <img width="100%" src="/images/office.jpg" class="mb-10" />
+          <img width="100%" src="/images/office.jpg" class="mb-10 rounded" />
           <h6 class="mb-10">Коммерческая недвижимость</h6>
           <ul class="nav nav-pills flex-column mb-auto">
             <li class="nav-item" style="word-wrap: anywhere">
@@ -104,7 +127,7 @@
       </div>
       <div class="col-md-6">
         <div class="card-wrap">
-          <img width="100%" src="/images/home.jpg" class="mb-10" />
+          <img width="100%" src="/images/home.jpg" class="mb-10 rounded" />
           <h6 class="mb-10">Загородная недвижимость</h6>
           <ul class="nav nav-pills flex-column mb-auto">
             <li class="nav-item" style="word-wrap: anywhere">
@@ -142,7 +165,27 @@
 export default {};
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+.map-wrap {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .map-wrap-title {
+    text-align: center;
+    color: black;
+    z-index: 99999;
+    position: absolute;
+  }
+  @media screen and (max-width: 1024px) {
+    .map-wrap-desc {
+      display: none;
+    }
+  }
+}
+.map-wrap:hover {
+  cursor: pointer;
+}
 .nav li {
   padding-bottom: 0px;
 }

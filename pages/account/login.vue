@@ -66,7 +66,6 @@ export default {
       Api.getInstance()
         .auth.login(this.userData)
         .then(response => {
-          localStorage.setItem("cf", JSON.stringify(response.data));
           this.sendNTFS("Отлично!", "Авторизация прошла успешно!", "success");
           setTimeout(() => {
             this.$router.push("/");

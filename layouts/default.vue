@@ -3,26 +3,29 @@
     <div
       class="header d-flex justify-content-between align-items-center container"
     >
-      <div class="sidebarToggle">
-        <el-button
-          type="info"
-          size="small"
-          plain
-          icon="el-icon-s-unfold"
-          class="mirllex-btn"
-        >
-        </el-button>
-      </div>
       <div>
         <el-button
           type="info"
           size="small"
           plain
-          icon="el-icon-circle-plus-outline"
-          class="mirllex-btn"
+          icon="bi bi-list-ul"
+          class="mirllex-btn sidebarToggle"
+          @click="eventSidebar()"
         >
-          Разместить объявление
         </el-button>
+      </div>
+      <div>
+        <nuxt-link to="/account/add_post">
+          <el-button
+            type="info"
+            size="small"
+            plain
+            icon="el-icon-circle-plus-outline"
+            class="mirllex-btn"
+          >
+            Разместить объявление
+          </el-button>
+        </nuxt-link>
         <nuxt-link to="/account/login">
           <el-button type="info" size="small" plain class="mirllex-btn">
             Войти
@@ -31,10 +34,22 @@
       </div>
     </div>
 
-    <div class="sidebar">
+    <div :class="[showSidebar ? 'sidebarActive' : '', 'sidebar']">
       <div class="d-flex flex-column p-3 text-white ">
         <ul class="nav nav-pills flex-column mb-md-0 me-md-auto">
-          <li class="nav-item pb-0" style="word-wrap: anywhere">
+          <div
+            @click="eventSidebar()"
+            class="close-sidebar nav-link text-white d-flex justify-content-center"
+          >
+            <li class="nav-item pb-20" style="word-wrap: anywhere">
+              <i class="bi bi-x-circle mr-8"></i>
+            </li>
+          </div>
+          <li
+            class="nav-item pb-0"
+            style="word-wrap: anywhere"
+            @click="eventSidebar()"
+          >
             <nuxt-link
               to="/"
               class="nav-link text-white d-flex align-items-center"
@@ -44,29 +59,26 @@
             </nuxt-link>
           </li>
         </ul>
-        <!-- <nuxt-link
-          to="/"
-          class="d-flex  mb-md-0 me-md-auto text-white justify-content-center text-decoration-none"
-        >
-          <span style="font-size: 20px; font-weight: normal;"
-            >Realty Mirllex</span
-          >
-        </nuxt-link> -->
+
         <el-divider class="my-18"></el-divider>
         <ul class="nav nav-pills flex-column mb-auto">
-          <li class="nav-item" style="word-wrap: anywhere">
+          <li
+            class="nav-item"
+            style="word-wrap: anywhere"
+            @click="eventSidebar()"
+          >
             <nuxt-link to="/buy" class="nav-link text-white">
               <i class="bi bi-bag-plus mr-5"></i>
               Купить
             </nuxt-link>
           </li>
-          <li>
+          <li @click="eventSidebar()">
             <nuxt-link to="/rent" class="nav-link text-white">
               <i class="bi bi-clipboard-data mr-5"></i>
               Снять
             </nuxt-link>
           </li>
-          <li>
+          <li @click="eventSidebar()">
             <nuxt-link to="/knock" class="nav-link text-white">
               <i class="bi bi-arrow-repeat mr-5"></i>
               Посуточно
@@ -80,6 +92,7 @@
         <Nuxt />
       </slide-y-down-transition>
     </div>
+    <div class="backdrop" v-if="showSidebar" @click="eventSidebar()"></div>
   </div>
 </template>
 <script>
@@ -89,9 +102,22 @@ export default {
     SlideYDownTransition
   },
   data() {
-    return {};
+    return {
+      showSidebar: false
+    };
   },
-  methods: {}
+  methods: {
+    eventSidebar() {
+      this.showSidebar = !this.showSidebar;
+      if (window.screen.width < 1024) {
+        if (this.showSidebar) {
+          document.body.style.overflow = "hidden";
+        } else {
+          document.body.style.overflow = "auto";
+        }
+      }
+    }
+  }
 };
 </script>
 
@@ -112,6 +138,9 @@ body {
   z-index: 1;
   position: relative;
 }
+.sidebarToggle {
+  display: none;
+}
 .logo {
   font-size: 18px;
   font-family: Baskerville Old Face;
@@ -119,20 +148,37 @@ body {
 }
 
 .sidebar {
+  transition: all 0.6s;
   word-wrap: break-word;
-  /* background: #264c84; */
   background-color: #212529 !important;
-  /* background: #fff; */
   height: 100vh;
   width: 230px;
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 2;
+  z-index: 999999999;
   background-size: cover;
   background-position: 50%;
   display: block;
   box-shadow: 0 2px 22px 0 rgb(0 0 0 / 10%), 0 4px 20px 0 rgb(0 0 0 / 15%);
+}
+.close-sidebar {
+  display: none !important;
+}
+.backdrop {
+  display: none;
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  opacity: 0.6;
+}
+.sidebarActive {
+  transition: all 0.6s;
+  left: 0 !important;
 }
 
 .nav li {
@@ -149,7 +195,16 @@ body {
     padding-left: 1rem;
   }
   .sidebar {
-    display: none;
+    left: -250px;
+  }
+  .sidebarToggle {
+    display: block;
+  }
+  .close-sidebar {
+    display: flex !important;
+  }
+  .backdrop {
+    display: block;
   }
 }
 </style>
