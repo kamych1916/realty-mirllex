@@ -17,6 +17,7 @@
 @import "element-ui/lib/theme-chalk/radio-button.css";
 @import "element-ui/lib/theme-chalk/radio-group.css"; */
 @import "element-ui/lib/theme-chalk/notification.css";
+@import "element-ui/lib/theme-chalk/select.css";
 
 .card-wrap {
   padding: 20px;
@@ -28,5 +29,9 @@
 
 html,
 body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif !important;
+  /* font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif !important; */
+  font-family: -apple-system, BlinkMacSystemFont, "avenir next", avenir,
+    "Helvetica Neue", Helvetica, Ubuntu, roboto, noto, "Segoe UI",
+    "Franklin Gothic Medium", Tahoma, Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol" !important;
 }

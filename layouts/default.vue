@@ -35,7 +35,7 @@
     </div>
 
     <div :class="[showSidebar ? 'sidebarActive' : '', 'sidebar']">
-      <div class="d-flex flex-column p-3 text-white ">
+      <div class="d-flex flex-column p-16 text-white ">
         <ul class="nav nav-pills flex-column mb-md-0 me-md-auto">
           <div
             @click="eventSidebar()"
@@ -121,7 +121,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 html,
 body {
   background: #f5f6fa;
