@@ -1,8 +1,8 @@
 <template>
   <div class="main-block" style="postion:relative">
     <div class="backdrop"></div>
-    <div>
-      <div class="row  d-flex justify-content-center">
+    <div class="title-block">
+      <div class="row d-flex justify-content-center">
         <div class="col-md-5 title my-30">
           Ищи <br />
           на флэтмай
@@ -10,8 +10,8 @@
         <div class="col-md-4 my-30">
           <div class="wrap-search">
             <el-select
-              v-model="kind_offer"
-              placeholder="Выберите вид сделки"
+              v-model="type_offer"
+              placeholder="Выберите тип недвижимости"
               class="w-100 p-10 "
             >
               <el-option
@@ -23,8 +23,8 @@
               </el-option>
             </el-select>
             <el-select
-              v-model="type_offer"
-              placeholder="Выберите тип недвижимости"
+              v-model="kind_offer"
+              placeholder="Выберите вид сделки"
               class="w-100 p-10"
             >
               <el-option
@@ -45,7 +45,7 @@
       </div>
     </div>
     <div class="row my-50 d-flex justify-content-center">
-      <div class="col-md-11">
+      <div class="col-md-12">
         <div class="row">
           <div class="col-md-4 mt-30">
             <div class="wrap-img h-100">
@@ -118,7 +118,7 @@ export default {
       kind_options: [
         {
           value: "apartment",
-          label: "квартиры"
+          label: "квартира"
         },
         {
           value: "home",
@@ -126,7 +126,7 @@ export default {
         },
         {
           value: "plot",
-          label: "учаток"
+          label: "участок"
         }
       ],
       type_options: [
@@ -135,8 +135,8 @@ export default {
           label: "купить"
         },
         {
-          value: "снять",
-          label: "rent"
+          value: "rent",
+          label: "снять"
         },
         {
           value: "daily",
@@ -161,14 +161,17 @@ export default {
     min-height: 700px;
     background-image: linear-gradient(180deg, #e8e8e8, #fff);
   }
-  .title {
-    color: #27272b;
-    font-size: 80px;
-    font-weight: 700;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: 0.88;
-    letter-spacing: normal;
+  .title-block {
+    margin-top: 50px;
+    .title {
+      color: #27272b;
+      font-size: 80px;
+      font-weight: 700;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 0.88;
+      letter-spacing: normal;
+    }
   }
   .wrap-search {
     background-color: #fff;
@@ -181,9 +184,13 @@ export default {
       border: none;
       background-color: #f2f3f7;
       border-radius: 25px;
+      color: #409eff;
       &::placeholder {
         color: black;
       }
+    }
+    .el-input__suffix {
+      padding-right: 15px;
     }
   }
   .wrap-img {
@@ -211,10 +218,14 @@ export default {
   }
 
   @media screen and (max-width: 1024px) {
-    .title {
-      text-align: center;
-      font-size: 50px;
+    .title-block {
+      margin-top: 0px;
+      .title {
+        text-align: center;
+        font-size: 50px;
+      }
     }
+
     .wrap-img img {
       height: 180px;
     }
